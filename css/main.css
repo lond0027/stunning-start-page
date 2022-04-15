@@ -11,33 +11,47 @@ html {
 
 body {
   margin: 0;
+    background-color: #bebebe;
 }
 
 header {
   display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
-  grid-template-rows: 4fr 1fr;
-  gap: 0px 0px;
+  grid-template-columns: auto 10em auto;
+  grid-template-rows: auto 1.5rem;
   grid-template-areas:
-      ". . ."
-      ". . .";
-  background-color: #bd027d;
-  justify-content: center;
+      "left center right"
+      ". center .";
+  margin-bottom: 1.5rem;
 }
 
-h1 {
-  font-family: "PT Sans Narrow";
-  font-size: 1.25rem;
-  color: #fff;
-  flex: 1;
-  text-align: center;
+header h1 {
+  grid-area: center;
+  z-index: 1;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  display: block;
 }
 
 nav {
-
+  background-color: #bd027d;
+  grid-column: 1 / -1;
+  grid-row: 1;
 }
 
-ul li a {
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0 1rem;
+  height: 100%;
+}
+
+nav ul li a {
   font-family: "PT Sans Narrow";
   font-size: 1.25rem;
   text-decoration: none;
@@ -50,7 +64,6 @@ ul li a {
 
 main {
   padding: 1rem;
-  background-color: #bebebe;
 }
 
 p {
@@ -69,7 +82,7 @@ h2 {
   font-size: 1.25rem;
 }
 
-ul {
+section ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -77,35 +90,70 @@ ul {
   margin: 0;
 }
 
-ul li {
-  display: block;
+section ul li {
+  display: grid;
+  grid-template-columns: 1fr;
   background-color: #ccc;
   border: 2px solid #afafaf;
   border-radius: 6px;
-  flex-direction: column;
-  padding: 1rem;
-  grid-column-gap: 1rem;
-  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  grid-template-areas:
+  "top"
+  "middle"
+  "bottom";
+
 }
 
 h3 {
   font-family: "PT Sans Narrow";
   font-size: 1.25rem;
   color: #323232;
-  background-color: #afafaf;
-  opacity: .5;
+  background-color: rgba(175,175,175,.5);
+  text-align: center;
+  margin: 0;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  grid-area: bottom;
 }
 
-div {
+section div {
   font-family: Georgia, serif;
   font-style: italic;
-  background-color: #afafaf;
-  opacity: .5;
+  background-color: rgba(175,175,175,.5);
   border-radius: 1em 0 0 1em;
+  grid-area: top;
+  display: flex;
+  text-align: right;
+  margin-right: 0;
+  margin-top: 1em;
+  margin-left: 2rem;
+  text-align: right;
 }
 
-div img {
-  display: inline-block;
+section div img {
   height: 1em;
   width: auto;
+  margin: 0;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: auto 10em auto;
+    grid-template-rows: auto 1.5rem;
+    grid-template-areas:
+        "left . right";
+    padding: 0 1em;
+    margin: 0;
+}
+
+footer p{
+  grid-area: left;
+  color: #323232
+}
+
+footer a {
+  font-family: Georgia, serif;
+  grid-area: right
+  color: #323232
 }
